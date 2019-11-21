@@ -1,26 +1,26 @@
 #!/bin/sh
 
-#emacs ‚ªˆÃ–Ù“I ‚ ‚é‚¢‚Í–¾¦“I‚ÉƒŠƒ“ƒN‚µ‚Ä‚¢‚é DLL ‚±‚ê‚ÍAƒo[ƒWƒ‡ƒ“ƒAƒbƒv‚É”º‚Á‚Ä•Ï‚í‚é‰Â”\«‚ª‚ ‚éB
+#emacs ãŒæš—é»™çš„ ã‚ã‚‹ã„ã¯æ˜ç¤ºçš„ã«ãƒªãƒ³ã‚¯ã—ã¦ã„ã‚‹ DLL ã“ã‚Œã¯ã€ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚¢ãƒƒãƒ—ã«ä¼´ã£ã¦å¤‰ã‚ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚
 #dependency_dlls="libjpeg-8.dll libXpm-noX4.dll libgif-7.dll libgdk-win32-2.0-0.dll libpng16-16.dll libtiff-5.dll libxml2-2.dll libdbus-1-3.dll librsvg-2-2.dll libgnutls-28.dll"
 dependency_dlls="libjpeg-8.dll libXpm-noX4.dll libgif-7.dll libpng16-16.dll libtiff-5.dll libxml2-2.dll librsvg-2-2.dll  libwinpthread-1.dll libgnutls-30.dll"
 w32_imeadv_dlls= #"libgcc_s_seh-1.dll libstdc++-6.dll"
-# ˆË‘¶ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚ğì¬‚·‚éB
-if [ -d .deplist ] ; then  # ‘¶İ‚µ‚Ä‚¢‚½‚çì‚è’¼‚µ
+# ä¾å­˜ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆã™ã‚‹ã€‚
+if [ -d .deplist ] ; then  # å­˜åœ¨ã—ã¦ã„ãŸã‚‰ä½œã‚Šç›´ã—
     rm -r .deplist 
 fi
 
 for f in ${dependency_dlls} ${w32_imeadv_dlls}
 do
     echo $f;
-    # ƒtƒ‹ƒpƒX‚Ìæ“¾
+    # ãƒ•ãƒ«ãƒ‘ã‚¹ã®å–å¾—
     file=`which $f`
-    # “–ŠY‚Ìƒtƒ@ƒCƒ‹‚ª
+    # å½“è©²ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒ
     if [ -f ${file} ] ; then 
         ./deprslv.sh ${file}
     fi
 done;
 
-# .deplist ƒfƒBƒŒƒNƒgƒŠ‚Ì *.list ‚É‘‚©‚ê‚Ä‚¢‚éƒtƒ@ƒCƒ‹‚ğ ‚Ü‚Æ‚ß‚ÄAdest ƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[‚·‚é
+# .deplist ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã® *.list ã«æ›¸ã‹ã‚Œã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ ã¾ã¨ã‚ã¦ã€dest ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
 
 if [ ! -d ./dest ] ; then
     mkdir ./dest
