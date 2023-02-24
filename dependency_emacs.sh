@@ -27,7 +27,7 @@ if [ ! -d ./dest ] ; then
 fi
 for f in ` cat .deplist/*.list | sort | uniq `; do
     echo $f
-    cp $f ./dest
+    cp --preserve=timestamps $f ./dest
 done
 
           

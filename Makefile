@@ -5,4 +5,4 @@ clean:
 	if [ -d dest ] ; then rm -r dest ; fi
 
 install: all
-	cp dest/* ${HOME}/emacs/bin/
+	cp --preserve=timestamps dest/* ${HOME}/emacs/bin/
