@@ -20,6 +20,7 @@ dependency_dlls=$(cat <<EOF
   libgccjit-0.dll
   libwinpthread-1.dll
   libdbus-1-3.dll
+  libtree-sitter-0.27.dll
 EOF
                );
 
